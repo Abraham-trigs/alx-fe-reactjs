@@ -7,29 +7,40 @@ import Header from './src/component/Header'
 import MainContent from './src/componens/MainContent'
 import Footer from './src/components/Footer'
 
-function MainContainer(){
+// function MainContainer(){
+//   return (
+//     <div>
+//       <Footer/>  
+//     </div>
+//   )
+// }
+
+// function MainContainer(){
+//   return (
+//     <div>
+//       <MainContent/>
+//     </div> 
+//   )
+// }
+
+// function header-tag(){
+//   return (
+//     <div>
+//       <Header/>
+//     </div>
+//   )
+// }
+function components() {
   return (
-    <div>
-      <Footer/>  
-    </div>
-  )
+      <div>
+          <Header />
+          <MainContent />
+          <Footer />
+      </div>
+  );
 }
 
-function MainContainer(){
-  return (
-    <div>
-      <MainContent/>
-    </div> 
-  )
-}
-
-function header-tag(){
-  return (
-    <div>
-      <Header/>
-    </div>
-  )
-}
+export default components;
 
 function greet() {
   return (
