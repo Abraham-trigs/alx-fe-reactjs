@@ -9,19 +9,19 @@ import Footer from './src/components/Footer'
 
 function MainContainer(){
   return (
-    Footer  
+    <Footer/>  
   )
 }
 
 function MainContainer(){
   return (
-    MainContent  
+    <MainContent/>  
   )
 }
 
 function header-tag(){
   return (
-    Header
+    <Header/>
   )
 }
 
