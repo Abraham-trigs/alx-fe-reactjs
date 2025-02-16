@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import WelcomeMessage from './src/components/WelcomeMessage' 
-import header from './src/component/header'
+import header from './src/component/Header'
 import MainContent from './src/componens/MainContent'
 import Footer from './src/components/Footer'
 
@@ -21,7 +21,7 @@ function MainContainer(){
 
 function header-tag(){
   return (
-    header
+    Header
   )
 }
 
