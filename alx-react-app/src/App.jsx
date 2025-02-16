@@ -5,7 +5,7 @@ import './App.css'
 import WelcomeMessage from './src/components/WelcomeMessage' 
 import header from './src/component/header'
 import MainContent from './src/componens/MainContent'
-import Footer from './src/componens/Footer'
+import Footer from './src/components/Footer'
 
 function MainContainer(){
   return (
