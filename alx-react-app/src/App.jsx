@@ -6,30 +6,19 @@ import WelcomeMessage from './src/components/WelcomeMessage'
 import Header from './src/component/Header'
 import MainContent from './src/componens/MainContent'
 import Footer from './src/components/Footer'
+import UserProfile from './components/UserProfile';
 
-// function MainContainer(){
-//   return (
-//     <div>
-//       <Footer/>  
-//     </div>
-//   )
-// }
+const UserProfile = () => {
+  return (
+    <div>
+      <h1>User Profile</h1>
+      <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
+    </div>
+  );
+};
 
-// function MainContainer(){
-//   return (
-//     <div>
-//       <MainContent/>
-//     </div> 
-//   )
-// }
+export default UserProfile;
 
-// function header-tag(){
-//   return (
-//     <div>
-//       <Header/>
-//     </div>
-//   )
-// }
 function components() {
   return (
       <div>
