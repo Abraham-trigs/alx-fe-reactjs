@@ -14,13 +14,13 @@ function App() {
       <Header />
       <MainContent />
       <Footer />
-      
+
       <UserProfile
-      name= 'Alice' 
-      age = '25' 
-      bio= 'Loves hiking and photography' />
+      name= "Alice" 
+      age = "25" 
+      bio= "Loves hiking and photography" />
     </>
   )
 }
 
-export default App
+export default App;
