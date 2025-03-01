@@ -1,11 +1,11 @@
-function UserProfile = ({name, age, bio}) => {
+function UserProfile({ name, age, bio})  {
   return (
     <div>
-    <h2>{name}</h2>
+    <h2>Name: {name}</h2>
     <p>Age: {age}</p>
-    <p>{bio}</p>
+    <p>Bio: {bio}</p>
     </div>
-  )
+  );
 };
 
 export default UserProfile;
