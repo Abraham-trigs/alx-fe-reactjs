@@ -1,8 +1,4 @@
 import { Link } from "react-router-dom"; 
-import Home from "./Home";
-import About from "./About";
-import Services from "./Services";
-import Contact from "./Contact";
 
 const Navbar = () => {
   return (
@@ -11,6 +7,7 @@ const Navbar = () => {
         style={{
           backgroundColor: "#2c3e50", 
           padding: "15px",
+          fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif',
           textAlign: "center",
         }}>
         <Link
@@ -23,7 +20,7 @@ const Navbar = () => {
             transition: "color 0.3s ease-in-out",
             marginRight: '980px',
           }}
-          onMouseEnter={(e) => (e.target.style.color = "#f39c12")} // Change color on hover
+          onMouseEnter={(e) => (e.target.style.color = "#3498db")} // Change color on hover
           onMouseLeave={(e) => (e.target.style.color = "white")} // Revert color
         >
           Home
