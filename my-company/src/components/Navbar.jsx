@@ -59,6 +59,7 @@ const Navbar = () => {
         <Link
           to="/contact"
           style={{
+            display: 'justifyContent',
             color: "white",
             textDecoration: "none",
             margin: "0 15px",

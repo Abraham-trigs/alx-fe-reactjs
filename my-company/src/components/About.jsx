@@ -44,14 +44,14 @@ function About() {
         </div>
       </section>
       
-      <section>
+      {/* <section>
         <h2 style={{color: '#2C3E50'}}>Our Values</h2>
         <ul style={{ listStyleType: 'none', padding: 0 }}>
           {values.map((value, index) => (
             <li key={index} style={{ marginBottom: '10px' }}>{value}</li>
           ))}
         </ul>
-      </section>
+      </section> */}
     </div>
   );
 };

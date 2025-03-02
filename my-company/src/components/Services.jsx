@@ -18,8 +18,7 @@ const Services = () => {
         padding: "20px",
       }}
       onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#2980b9")}
-      onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#3498db")}
-    >
+      onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#3498db")}>
       <h1 style={{ borderBottom: "3px solid white", paddingBottom: "10px" }}>
         Our Services
       </h1>
