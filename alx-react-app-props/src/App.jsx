@@ -19,6 +19,9 @@ function App() {
       name= "Alice" 
       age= "25" 
       bio= "Loves hiking and photography" />
+
+      const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
+      return <ProfilePage userData={userData} />;
     </>
   )
 }
