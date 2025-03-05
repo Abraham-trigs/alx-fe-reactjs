@@ -1,49 +1,16 @@
-import useRecipeStore from './recipeStore';
-import { useState } from 'react';
+import useRecipeStore from "../store/recipeStore";
 
 const RecipeList = () => {
-  const { recipes, deleteRecipe, updateRecipe } = useRecipeStore();
-  const [editingId, setEditingId] = useState(null);
-  const [editedTitle, setEditedTitle] = useState('');
-  const [editedDescription, setEditedDescription] = useState('');
-
-  const handleEdit = (recipe) => {
-    setEditingId(recipe.id);
-    setEditedTitle(recipe.title);
-    setEditedDescription(recipe.description);
-  };
-
-  const handleSave = () => {
-    updateRecipe({ id: editingId, title: editedTitle, description: editedDescription });
-    setEditingId(null);
-  };
+  const recipes = useRecipeStore((state) => state.recipes);
 
   return (
     <div>
+      <h2>Recipe List</h2>
+      {recipes.length === 0 ? <p>No recipes added yet.</p> : null}
       {recipes.map((recipe) => (
         <div key={recipe.id}>
-          {editingId === recipe.id ? (
-            <div>
-              <input
-                type="text"
-                value={editedTitle}
-                onChange={(e) => setEditedTitle(e.target.value)}
-              />
-              <textarea
-                value={editedDescription}
-                onChange={(e) => setEditedDescription(e.target.value)}
-              />
-              <button onClick={handleSave}>Save</button>
-              <button onClick={() => setEditingId(null)}>Cancel</button>
-            </div>
-          ) : (
-            <div>
-              <h3>{recipe.title}</h3>
-              <p>{recipe.description}</p>
-              <button onClick={() => handleEdit(recipe)}>Edit</button>
-              <button onClick={() => deleteRecipe(recipe.id)}>Delete</button>
-            </div>
-          )}
+          <h3>{recipe.title}</h3>
+          <p>{recipe.description}</p>
         </div>
       ))}
     </div>
