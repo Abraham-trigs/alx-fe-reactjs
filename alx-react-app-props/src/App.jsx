@@ -15,6 +15,10 @@ function App() {
       <MainContent />
       <Footer />
 
+      <UserContext.Provider value={userData}>
+      <ProfilePage />
+      </UserContext.Provider>
+
       <UserProfile
       name= "Alice" 
       age= "25" 
