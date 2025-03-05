@@ -5,7 +5,8 @@ import MainContent from './components/MainContent';
 import Footer from './components/Footer';
 import UserProfile from './components/UserProfile';
 import UserContext from './components/UserContext';
-// import {UserPage} from './components/UserPage';
+import RecipeList from './components/RecipeList';
+import AddRecipeForm from './components/AddRecipeForm';
 
 
 function App() {
@@ -25,6 +26,10 @@ function App() {
       name= "Alice" 
       age= "25" 
       bio= "Loves hiking and photography" />
+
+      <h1>Recipe Sharing App</h1>
+      <AddRecipeForm />
+      <RecipeList />
     </>
   );
 }
