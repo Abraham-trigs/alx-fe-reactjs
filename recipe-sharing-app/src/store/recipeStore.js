@@ -1,8 +1,9 @@
-import create from 'zustand'
+import {create} from 'zustand'; // ✅ Correct import
 
-const useRecipeStore = create(set => ({
+const useRecipeStore = create((set) => ({  // ✅ Correct function assignment
   recipes: [],
-  addRecipe: (newRecipe) => set(state => ({ recipes: [...state.recipes, newRecipe] })),
-  setRecipes: (recipes) => set({ recipes })
+  addRecipe: (newRecipe) => set((state) => ({ recipes: [...state.recipes, newRecipe] })),
+  setRecipes: (recipes) => set({ recipes }),
 }));
-export default useRecipeStore;
+
+export default useRecipeStore; // ✅ Correct export
