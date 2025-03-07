@@ -6,7 +6,7 @@ export const useRecipeStore = create((set) => ({
   addRecipe: (newRecipe) =>
     set((state) => ({ recipes: [...state.recipes, newRecipe] })),
 
-  setRecipes: (recipes) => set({ recipes }),
+  setRecipes: (recipes) => set({ recipes }), // Ensure this function exists
 
   setRecipe: (id, updatedRecipe) =>
     set((state) => ({
