@@ -1,4 +1,6 @@
 import { useRecipeStore } from './recipeStore';
+import { Link } from 'react-router-dom';
+
 
   const RecipeDetails = ({ recipeId }) => {
     const recipe = useRecipeStore(state =>
