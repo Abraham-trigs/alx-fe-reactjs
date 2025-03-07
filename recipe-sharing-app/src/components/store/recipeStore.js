@@ -2,10 +2,10 @@ import { create } from 'zustand';
 
 export const useRecipeStore = create((set) => ({
   recipes: [
-    { id: 1, title: "Spaghetti", description: "Delicious homemade spaghetti" },
-    { id: 2, title: "Salad", description: "Fresh and healthy salad" }
-  ], // ✅ Initial recipes added
-
+    { id: 1, title: "Waakye", description: "  Boiled Rice and Beans" },
+    { id: 2, title: "Omo-Tuo", description: "Rice Balls" }
+  ], 
+  
   addRecipe: (newRecipe) =>
     set((state) => ({ recipes: [...state.recipes, newRecipe] })),
 
