@@ -1,3 +1,5 @@
+import { create } from 'zustand';
+
 export const useRecipeStore = create((set) => ({
   recipes: [],
 
@@ -23,35 +25,27 @@ export default useRecipeStore;
 
 
 
+// import { create } from 'zustand';
 
+// export const useRecipeStore = create((set) => ({
+//   recipes: [],
 
+//   addRecipe: (newRecipe) =>
+//     set((state) => ({ recipes: [...state.recipes, newRecipe] })),
 
-// import { useParams } from "react-router-dom";
-// import { useRecipeStore } from "./recipeStore";
-// import EditRecipeForm from "./EditRecipeForm";
-// import DeleteRecipeButton from "./DeleteRecipeButton";
+//   setRecipes: (recipes) => set({ recipes }),
 
-// const RecipeDetails = () => {
-//   const { id } = useParams(); // ✅ Get recipe ID from URL
-//   const recipe = useRecipeStore(state =>
-//     state.recipes.find(recipe => recipe.id === Number(id))
-//   );
+//   setRecipe: (id, updatedRecipe) =>
+//     set((state) => ({
+//       recipes: state.recipes.map((recipe) =>
+//         recipe.id === id ? { ...recipe, ...updatedRecipe } : recipe
+//       ),
+//     })),
 
-//   if (!recipe) return <p>Recipe not found!</p>;
+//   deleteRecipe: (id) =>
+//     set((state) => ({
+//       recipes: state.recipes.filter((recipe) => recipe.id !== id),
+//     })),
+// }));
 
-//   return (
-//     <div>
-//       <h1>{recipe.title}</h1>
-//       <p>{recipe.description}</p>
-      
-//       <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-//         <EditRecipeForm recipe={recipe} />
-//         <DeleteRecipeButton recipeId={recipe.id} />
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default RecipeDetails;
-
-
+// export default useRecipeStore;
