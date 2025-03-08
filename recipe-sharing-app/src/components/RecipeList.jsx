@@ -3,28 +3,17 @@ import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar';
 
 const RecipeList = () => {
-  const recipes = useRecipeStore((state) => state.filteredRecipes());
+  const recipes = useRecipeStore((state) => state.recipes); // ✅ Get full list of recipes
 
   return (
-    <div style={{ maxWidth: '600px', margin: '0 auto', textAlign: 'center' }}>
+    <div>
       <SearchBar />
       {recipes.length > 0 ? (
         recipes.map((recipe) => (
-          <div 
-            key={recipe.id} 
-            style={{
-              border: '1px solid #ddd',
-              padding: '15px',
-              margin: '10px 0',
-              borderRadius: '5px',
-              backgroundColor: '#f9f9f9'
-            }}
-          >
+          <div key={recipe.id}>
             <h3>{recipe.title}</h3>
             <p>{recipe.description}</p>
-            <Link to={`/recipe/${recipe.id}`} style={{ textDecoration: 'none', color: 'blue' }}>
-              View Details
-            </Link>
+            <Link to={`/recipe/${recipe.id}`}>View Details</Link>
           </div>
         ))
       ) : (
