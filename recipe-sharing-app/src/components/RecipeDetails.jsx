@@ -5,63 +5,47 @@ import DeleteRecipeButton from './DeleteRecipeButton';
 
 const RecipeDetails = () => {
   const { id } = useParams();
-  const navigate = useNavigate(); // ✅ Allows redirecting after delete
+  const navigate = useNavigate();
   const deleteRecipe = useRecipeStore((state) => state.deleteRecipe);
   const recipe = useRecipeStore((state) =>
     state.recipes.find((recipe) => recipe.id === Number(id))
   );
 
   if (!recipe) {
-    return <p>Recipe not found. It may have been deleted.</p>;
+    return <p style={{ textAlign: 'center', fontStyle: 'italic', color: '#777' }}>Recipe not found.</p>;
   }
 
   const handleDelete = () => {
-    deleteRecipe(Number(id)); // ✅ Convert id to number
-    navigate('/'); // ✅ Redirect to home after delete
+    deleteRecipe(Number(id));
+    navigate('/');
   };
 
   return (
-    <div>
+    <div style={{ maxWidth: '600px', margin: '0 auto', textAlign: 'center', color: '#00ffff' }}>
       <h1>{recipe.title}</h1>
       <p>{recipe.description}</p>
       <EditRecipeForm recipe={recipe} />
-      <button onClick={handleDelete}>Delete</button> {/* ✅ Now deletes and redirects */}
+      <button
+        onClick={handleDelete}
+        style={{
+          backgroundColor: '#ff0000',
+          color: 'white',
+          border: 'none',
+          padding: '8px 12px',
+          marginTop: '10px',
+          borderRadius: '5px',
+          cursor: 'pointer',
+          transition: '0.3s',
+        }}
+      >
+        Delete Recipe
+      </button>
       <br />
-      <Link to="/">Back to Recipes</Link>
+      <Link to="/" style={{ textDecoration: 'none', color: '#00ffff', marginTop: '10px', display: 'inline-block' }}>
+        Back to Recipes
+      </Link>
     </div>
   );
 };
 
 export default RecipeDetails;
-
-
-
-
-
-// import { useRecipeStore } from './recipeStore';
-// import EditRecipeForm from './EditRecipeForm';
-// import DeleteRecipeButton from './DeleteRecipeButton';
-// import { useParams, Link } from 'react-router-dom';
-
-// const RecipeDetails = () => {
-//   const { id } = useParams(); // ✅ Get recipe ID from URL
-//   const recipe = useRecipeStore((state) =>
-//     state.recipes.find((recipe) => recipe.id === Number(id)) // ✅ Ensure ID is converted to a number
-//   );
-
-//   if (!recipe) {
-//     return <p>Recipe not found. It may have been deleted.</p>;
-//   }
-
-//   return (
-//     <div>
-//       <h1>{recipe.title}</h1>
-//       <p>{recipe.description}</p>
-//       <EditRecipeForm recipe={recipe} />
-//       <DeleteRecipeButton recipeId={Number(id)} />
-//       <br />
-//       <Link to="/">Back to Recipes</Link>
-//     </div>
-//   );
-// };
-// export default RecipeDetails;

@@ -5,18 +5,22 @@ const SearchBar = () => {
   const setSearchTerm = useRecipeStore((state) => state.setSearchTerm);
 
   return (
-    <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+    <div style={{ textAlign: 'center', marginBottom: '20px', padding: '10px' }}>
       <input
         type="text"
-        placeholder="Search recipes..."
+        placeholder="🔍 Scan for recipes..."
         onChange={(e) => setSearchTerm(e.target.value)}
         style={{
           width: '80%',
-          padding: '10px',
+          padding: '12px',
           fontSize: '16px',
-          borderRadius: '5px',
-          border: '1px solid #ccc',
+          borderRadius: '8px',
+          border: '2px solid #00ffff',
           outline: 'none',
+          backgroundColor: 'rgba(0, 255, 255, 0.1)',
+          color: '#00ffff',
+          transition: '0.3s',
+          textAlign: 'center',
         }}
       />
     </div>
