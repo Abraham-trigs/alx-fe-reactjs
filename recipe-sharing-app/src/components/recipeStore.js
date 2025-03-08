@@ -1,36 +1,38 @@
-import { create } from 'zustand';
+import { useRecipeStore } from './recipeStore';
+import { Link } from 'react-router-dom';
+import SearchBar from './SearchBar';
 
-export const useRecipeStore = create((set, get) => ({
-  recipes: [],
-  searchTerm: '',
+const RecipeList = () => {
+  const filteredRecipes = useRecipeStore((state) => state.filteredRecipes); // ✅ Get function reference
+  const recipes = filteredRecipes(); // ✅ Call it outside the hook
 
-  // ✅ Function to update searchTerm
-  setSearchTerm: (term) => set({ searchTerm: term }),
+  return (
+    <div style={{ maxWidth: '600px', margin: '0 auto', textAlign: 'center' }}>
+      <SearchBar />
+      {recipes.length > 0 ? (
+        recipes.map((recipe) => (
+          <div 
+            key={recipe.id} 
+            style={{
+              border: '1px solid #ddd',
+              padding: '15px',
+              margin: '10px 0',
+              borderRadius: '5px',
+              backgroundColor: '#f9f9f9'
+            }}
+          >
+            <h3>{recipe.title}</h3>
+            <p>{recipe.description}</p>
+            <Link to={`/recipe/${recipe.id}`} style={{ textDecoration: 'none', color: 'blue' }}>
+              View Details
+            </Link>
+          </div>
+        ))
+      ) : (
+        <p>No recipes found.</p>
+      )}
+    </div>
+  );
+};
 
-  // ✅ Function to filter recipes based on searchTerm
-  filteredRecipes: () => {
-    const { recipes, searchTerm } = get();
-    return recipes.filter((recipe) =>
-      recipe.title.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-  },
-
-  addRecipe: (newRecipe) =>
-    set((state) => ({ recipes: [...state.recipes, newRecipe] })),
-
-  setRecipes: (recipes) => set({ recipes }),
-
-  updateRecipe: (id, updatedRecipe) =>
-    set((state) => ({
-      recipes: state.recipes.map((recipe) =>
-        recipe.id === id ? { ...recipe, ...updatedRecipe } : recipe
-      ),
-    })),
-
-  deleteRecipe: (id) =>
-    set((state) => ({
-      recipes: state.recipes.filter((recipe) => recipe.id !== id),
-    })),
-}));
-
-export default useRecipeStore;
+export default RecipeList;
