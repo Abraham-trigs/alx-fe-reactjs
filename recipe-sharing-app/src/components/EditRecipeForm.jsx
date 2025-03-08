@@ -2,13 +2,13 @@ import { useState } from 'react';
 import { useRecipeStore } from './recipeStore';
 
 const EditRecipeForm = ({ recipe }) => {
-  const setRecipe = useRecipeStore(state => state.setRecipe);
+  const updateRecipe = useRecipeStore(state => state.setRecipe);
   const [title, setTitle] = useState(recipe.title);
   const [description, setDescription] = useState(recipe.description);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setRecipe(recipe.id, { title, description });
+    updateRecipe (recipe.id, { title, description });
   };
 
   return (

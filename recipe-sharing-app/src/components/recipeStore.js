@@ -6,7 +6,9 @@ export const useRecipeStore = create((set) => ({
   addRecipe: (newRecipe) =>
     set((state) => ({ recipes: [...state.recipes, newRecipe] })),
 
-  updateRecipe: (id, updatedRecipe) => // Renamed from setRecipe to updateRecipe
+  setRecipes: (recipes) => set({ recipes }),
+
+  setRecipe: (id, updatedRecipe) =>
     set((state) => ({
       recipes: state.recipes.map((recipe) =>
         recipe.id === id ? { ...recipe, ...updatedRecipe } : recipe
@@ -20,3 +22,30 @@ export const useRecipeStore = create((set) => ({
 }));
 
 export default useRecipeStore;
+
+
+
+// import { create } from 'zustand';
+
+// export const useRecipeStore = create((set) => ({
+//   recipes: [],
+
+//   addRecipe: (newRecipe) =>
+//     set((state) => ({ recipes: [...state.recipes, newRecipe] })),
+
+//   setRecipes: (recipes) => set({ recipes }),
+
+//   setRecipe: (id, updatedRecipe) =>
+//     set((state) => ({
+//       recipes: state.recipes.map((recipe) =>
+//         recipe.id === id ? { ...recipe, ...updatedRecipe } : recipe
+//       ),
+//     })),
+
+//   deleteRecipe: (id) =>
+//     set((state) => ({
+//       recipes: state.recipes.filter((recipe) => recipe.id !== id),
+//     })),
+// }));
+
+// export default useRecipeStore;
