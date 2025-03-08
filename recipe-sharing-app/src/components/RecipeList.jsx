@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar';
 
 const RecipeList = () => {
-  const recipes = useRecipeStore((state) => state.recipes); // ✅ Get full list of recipes
+  const recipes = useRecipeStore((state) => state.filteredRecipes); // ✅ Get filtered list directly
 
   return (
     <div>
