@@ -8,7 +8,7 @@ const RegistrationForm = () => {
     password: "",
   });
 
-  const [error, setError] = useState("");
+  const [errors, setErrors] = useState({});
 
   // Destructure form data
   const { username, email, password } = formData;
@@ -21,12 +21,18 @@ const RegistrationForm = () => {
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Basic validation
-    if (!username || !email || !password) {
-      setError("All fields are required.");
+    let newErrors = {};
+    
+    if (!username) newErrors.username = "Username is required.";
+    if (!email) newErrors.email = "Email is required.";
+    if (!password) newErrors.password = "Password is required.";
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
       return;
     }
-    setError(""); // Clear any previous error
+
+    setErrors({}); // Clear any previous errors
     console.log("User registered:", formData);
   };
 
@@ -39,30 +45,30 @@ const RegistrationForm = () => {
         type="text"
         name="username"
         placeholder="Username"
-        value={username} // ✅ Now using destructured variable
+        value={username}
         onChange={handleChange}
       />
+      {errors.username && <p style={{ color: "red" }}>{errors.username}</p>}
 
       {/* Email Field */}
       <input
         type="email"
         name="email"
         placeholder="Email"
-        value={email} // ✅ Now using destructured variable
+        value={email}
         onChange={handleChange}
       />
+      {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
 
       {/* Password Field */}
       <input
         type="password"
         name="password"
         placeholder="Password"
-        value={password} // ✅ Now using destructured variable
+        value={password}
         onChange={handleChange}
       />
-
-      {/* Error Message */}
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      {errors.password && <p style={{ color: "red" }}>{errors.password}</p>}
 
       {/* Submit Button */}
       <button type="submit">Register</button>
