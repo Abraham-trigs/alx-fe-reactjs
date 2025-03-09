@@ -1,9 +1,18 @@
-import React from 'react';
-import RegistrationForm from './components/RegistrationForm';
+import React from "react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import PostsComponent from "./components/PostsComponent"; // Import posts component
+
+// Initialize QueryClient
+const queryClient = new QueryClient();
 
 const App = () => {
   return (
-    <RegistrationForm />
+    <QueryClientProvider client={queryClient}>
+      <div>
+        <h1>Advanced React and Authentication in React JS</h1>
+        <PostsComponent />
+      </div>
+    </QueryClientProvider>
   );
 };
 
