@@ -1,8 +1,6 @@
-// Import necessary dependencies for React Query
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'; 
-import PostsComponent from './PostsComponent'; // Component to fetch posts
-
-// Initialize a QueryClient instance
+import PostsComponent from './components/PostsComponent';
+// Initialize QueryClient instance
 const queryClient = new QueryClient();
 
 function App() {
