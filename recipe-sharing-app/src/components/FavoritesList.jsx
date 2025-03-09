@@ -1,10 +1,15 @@
 import { useRecipeStore } from './recipeStore';
+import { useMemo } from 'react';
 
 const FavoritesList = () => {
-  //  Get favorite recipes from Zustand store
-  const favorites = useRecipeStore((state) =>
-    state.favorites.map((id) => state.recipes.find((recipe) => recipe.id === id))
-  );
+  // ✅ Get state values separately
+  const favorites = useRecipeStore((state) => state.favorites);
+  const recipes = useRecipeStore((state) => state.recipes);
+
+  // ✅ Memoize favorite recipes to prevent unnecessary re-renders
+  const favoriteRecipes = useMemo(() => {
+    return recipes.filter((recipe) => favorites.includes(recipe.id));
+  }, [favorites, recipes]);
 
   return (
     <div 
@@ -24,8 +29,8 @@ const FavoritesList = () => {
         My Favorites
       </h2>
 
-      {favorites.length > 0 ? (
-        favorites.map((recipe) => (
+      {favoriteRecipes.length > 0 ? (
+        favoriteRecipes.map((recipe) => (
           <div 
             key={recipe.id}
             // styling
