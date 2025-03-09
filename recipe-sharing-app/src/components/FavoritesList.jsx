@@ -2,11 +2,11 @@ import { useRecipeStore } from './recipeStore';
 import { useMemo } from 'react';
 
 const FavoritesList = () => {
-  // ✅ Get state values separately
+  // Get list of favorite IDs and all recipes
   const favorites = useRecipeStore((state) => state.favorites);
   const recipes = useRecipeStore((state) => state.recipes);
 
-  // ✅ Memoize favorite recipes to prevent unnecessary re-renders
+  // Memoize favorite recipes to prevent unnecessary re-renders
   const favoriteRecipes = useMemo(() => {
     return recipes.filter((recipe) => favorites.includes(recipe.id));
   }, [favorites, recipes]);

@@ -1,7 +1,7 @@
 import { useRecipeStore } from './recipeStore';
 
 const RecommendationsList = () => {
-  // Get recommended recipes from Zustand store 
+  // Get recommended recipes from Zustand store
   const recommendations = useRecipeStore((state) => state.recommendations);
 
   return (
