@@ -1,20 +1,17 @@
-import React from "react";
-import { useQuery } from "@tanstack/react-query"; // ✅ Ensure correct import
+import { useQuery } from "@tanstack/react-query"; // Import useQuery for data fetching
+import axios from "axios";
 
-// Function to fetch posts from the API
 const fetchPosts = async () => {
-  const response = await fetch("https://jsonplaceholder.typicode.com/posts");
-  if (!response.ok) {
-    throw new Error("Failed to fetch posts");
-  }
-  return response.json();
+  const response = await axios.get("https://jsonplaceholder.typicode.com/posts");
+  return response.data;
 };
 
 const PostsComponent = () => {
-  // ✅ Corrected useQuery syntax for React Query v5
-  const { data, error, isLoading } = useQuery({
-    queryKey: ["posts"], // ✅ Array format required
-    queryFn: fetchPosts, // ✅ Pass function directly
+  // Fetch posts using React Query
+  const { data: posts, error, isLoading, refetch } = useQuery({
+    queryKey: ["posts"],
+    queryFn: fetchPosts, 
+    staleTime: 5000, // Cache data for 5 seconds before considering it stale
   });
 
   // Handle loading state
@@ -26,8 +23,9 @@ const PostsComponent = () => {
   return (
     <div>
       <h2>Posts</h2>
+      <button onClick={() => refetch()}>Refresh Posts</button> {/* Manual Refetch Button */}
       <ul>
-        {data.map((post) => (
+        {posts.map((post) => (
           <li key={post.id}>{post.title}</li>
         ))}
       </ul>
