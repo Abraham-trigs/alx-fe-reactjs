@@ -10,7 +10,7 @@ const fetchPosts = async () => {
   return response.json();
 };
 
-const PostsComponent = () => {
+const Post = () => {
   // Fetch data using React Query's useQuery hook
   const { data, error, isLoading, refetch } = useQuery({
     queryKey: ["posts"], // Unique key for caching
@@ -40,4 +40,4 @@ const PostsComponent = () => {
   );
 };
 
-export default PostsComponent;
+export default Post;
