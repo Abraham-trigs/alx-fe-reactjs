@@ -2,14 +2,19 @@ import React from 'react';
 import { useRecipeStore } from './recipeStore';
 
 const SearchBar = () => {
+  // ✅ Get setSearchTerm function from Zustand store
   const setSearchTerm = useRecipeStore((state) => state.setSearchTerm);
 
   return (
-    <div style={{ textAlign: 'center', marginBottom: '20px', padding: '10px' }}>
+    <div 
+      // styling
+      style={{ textAlign: 'center', marginBottom: '20px', padding: '10px' }}
+    >
       <input
         type="text"
         placeholder="🔍 Scan for recipes..."
         onChange={(e) => setSearchTerm(e.target.value)}
+        // styling
         style={{
           width: '80%',
           padding: '12px',
