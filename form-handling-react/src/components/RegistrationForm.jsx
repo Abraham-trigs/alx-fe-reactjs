@@ -10,6 +10,9 @@ const RegistrationForm = () => {
 
   const [error, setError] = useState("");
 
+  // Destructure form data
+  const { username, email, password } = formData;
+
   // Handle input changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -19,7 +22,7 @@ const RegistrationForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Basic validation
-    if (!formData.username || !formData.email || !formData.password) {
+    if (!username || !email || !password) {
       setError("All fields are required.");
       return;
     }
@@ -30,37 +33,37 @@ const RegistrationForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <h2>Register</h2>
-      
+
       {/* Username Field */}
       <input
         type="text"
         name="username"
         placeholder="Username"
-        value={formData.username}
+        value={username} // ✅ Now using destructured variable
         onChange={handleChange}
       />
-      
+
       {/* Email Field */}
       <input
         type="email"
         name="email"
         placeholder="Email"
-        value={formData.email}
+        value={email} // ✅ Now using destructured variable
         onChange={handleChange}
       />
-      
+
       {/* Password Field */}
       <input
         type="password"
         name="password"
         placeholder="Password"
-        value={formData.password}
+        value={password} // ✅ Now using destructured variable
         onChange={handleChange}
       />
-      
+
       {/* Error Message */}
       {error && <p style={{ color: "red" }}>{error}</p>}
-      
+
       {/* Submit Button */}
       <button type="submit">Register</button>
     </form>
