@@ -29,6 +29,18 @@ export const useRecipeStore = create((set, get) => ({
     }));
   },
 
+  // Set the entire recipes array
+  setRecipes: (newRecipes) => {
+    set({
+      recipes: newRecipes,
+      filteredRecipes: get().searchTerm
+        ? newRecipes.filter((recipe) =>
+            recipe.title.toLowerCase().includes(get().searchTerm.toLowerCase())
+          )
+        : newRecipes,
+    });
+  },
+
   // Add a new recipe
   addRecipe: (newRecipe) => {
     set((state) => {
