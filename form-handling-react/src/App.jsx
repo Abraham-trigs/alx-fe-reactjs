@@ -1,19 +1,38 @@
 import React from "react";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import PostsComponent from "./components/PostsComponent";
+import { useQuery } from "@tanstack/react-query"; // ✅ Ensure correct import
 
-// Initialize QueryClient
-const queryClient = new QueryClient();
+// Function to fetch posts from the API
+const fetchPosts = async () => {
+  const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+  if (!response.ok) {
+    throw new Error("Failed to fetch posts");
+  }
+  return response.json();
+};
 
-const App = () => {
+const PostsComponent = () => {
+  // ✅ Corrected useQuery syntax for React Query v5
+  const { data, error, isLoading } = useQuery({
+    queryKey: ["posts"], // ✅ Array format required
+    queryFn: fetchPosts, // ✅ Pass function directly
+  });
+
+  // Handle loading state
+  if (isLoading) return <p>Loading posts...</p>;
+
+  // Handle error state
+  if (error) return <p>Error: {error.message}</p>;
+
   return (
-    <QueryClientProvider client={queryClient}>
-      <div>
-        <h1>React Query Demo</h1>
-        <PostsComponent />
-      </div>
-    </QueryClientProvider>
+    <div>
+      <h2>Posts</h2>
+      <ul>
+        {data.map((post) => (
+          <li key={post.id}>{post.title}</li>
+        ))}
+      </ul>
+    </div>
   );
 };
 
-export default App;
+export default PostsComponent;
