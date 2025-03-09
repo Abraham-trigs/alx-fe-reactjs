@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar';
 
 const RecipeList = () => {
-  // ✅ Ensure filteredRecipes and newRecipeIds are properly initialized
+  // ✅ Get filtered recipes and favorites from Zustand store
   const filteredRecipes = useRecipeStore((state) => state.filteredRecipes);
-  const newRecipeIds = useRecipeStore((state) => state.newRecipeIds) || []; // ✅ Ensure it's always an array
+  const favorites = useRecipeStore((state) => state.favorites);
+  const addFavorite = useRecipeStore((state) => state.addFavorite);
+  const removeFavorite = useRecipeStore((state) => state.removeFavorite);
 
   return (
     <div 
@@ -24,7 +26,7 @@ const RecipeList = () => {
         // styling
         style={{ color: '#00ffff', marginBottom: '15px' }}
       >
-        Filtered Recipes
+        Recipes
       </h2>
 
       <div 
@@ -36,16 +38,15 @@ const RecipeList = () => {
           marginTop: '20px',
         }}
       >
-        {/* ✅ Display filtered recipes */}
         {filteredRecipes.length > 0 ? (
           filteredRecipes.map((recipe) => {
-            const isNewRecipe = newRecipeIds.includes(recipe.id); // ✅ No more "undefined" error
+            const isFavorite = favorites.includes(recipe.id);
             return (
               <div
                 key={recipe.id}
                 // styling
                 style={{
-                  border: isNewRecipe ? '2px solid white' : '2px solid #00ffff',
+                  border: isFavorite ? '2px solid white' : '2px solid #00ffff',
                   padding: '15px',
                   borderRadius: '10px',
                   backgroundColor: 'black',
@@ -71,7 +72,29 @@ const RecipeList = () => {
                   {recipe.description}
                 </p>
 
-                {/* ✅ Link to view recipe details */}
+                {/* ✅ Favorite Button */}
+                <button
+                  onClick={() =>
+                    isFavorite ? removeFavorite(recipe.id) : addFavorite(recipe.id)
+                  }
+                  // styling
+                  style={{
+                    backgroundColor: isFavorite ? '#ff0000' : '#00ffff',
+                    color: 'black',
+                    padding: '5px 10px',
+                    borderRadius: '5px',
+                    cursor: 'pointer',
+                    fontWeight: 'bold',
+                    border: 'none',
+                    fontSize: '14px',
+                    transition: '0.3s ease-in-out',
+                    marginTop: '10px',
+                  }}
+                >
+                  {isFavorite ? 'Remove Favorite' : 'Add to Favorites'}
+                </button>
+
+                {/* ✅ Link to view full recipe details */}
                 <Link
                   to={`/recipe/${recipe.id}`}
                   // styling
@@ -90,7 +113,6 @@ const RecipeList = () => {
             );
           })
         ) : (
-          // ✅ Display message when no recipes match the filters
           <p 
             // styling
             style={{ color: '#888', fontStyle: 'italic' }}

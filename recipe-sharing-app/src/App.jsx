@@ -3,6 +3,8 @@ import { Routes, Route } from 'react-router-dom'; // ✅ Removed BrowserRouter
 import RecipeList from './components/RecipeList';
 import AddRecipeForm from './components/AddRecipeForm';
 import RecipeDetails from './components/RecipeDetails';
+import FavoritesList from './components/FavoritesList';
+import RecommendationsList from './components/RecommendationsList';
 
 const App = () => {
   return (
@@ -29,6 +31,11 @@ const App = () => {
       {/* ✅ Add Recipe Form */}
       <AddRecipeForm />
 
+      {/* ✅ Display favorites and recommendations */}
+      <FavoritesList />
+      <RecommendationsList />
+
+
       {/* ✅ Define app routes */}
       <Routes>
         <Route path="/" element={<RecipeList />} />
@@ -39,3 +46,7 @@ const App = () => {
 };
 
 export default App;
+
+
+
+
