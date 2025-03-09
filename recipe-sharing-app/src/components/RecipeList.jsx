@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar';
 
 const RecipeList = () => {
-  // ✅ Get filtered recipes and favorites from Zustand store
+  // Get filtered recipes and favorites from Zustand store 
   const filteredRecipes = useRecipeStore((state) => state.filteredRecipes);
   const favorites = useRecipeStore((state) => state.favorites);
   const addFavorite = useRecipeStore((state) => state.addFavorite);
