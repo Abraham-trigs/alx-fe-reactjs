@@ -15,7 +15,7 @@ const fetchPosts = async () => {
 
 const PostsComponent = () => {
   // Using React Query's useQuery hook to fetch and manage posts data
-  const { data: posts, error, isLoading, refetch } = useQuery({
+  const { data: posts, isError, isLoading, refetch } = useQuery({
     queryKey: ["posts"], // Unique key for caching
     queryFn: fetchPosts, // Function to fetch posts
     staleTime: 5000, // Cache posts for 5 seconds before refetching
@@ -25,12 +25,12 @@ const PostsComponent = () => {
   if (isLoading) return <p>Loading posts...</p>;
 
   // Show error message if fetching fails
-  if (error) return <p>Error: {error.message}</p>;
+  if (isError) return <p>Error: Failed to fetch posts.</p>; // Updated error handling
 
   return (
     <div>
       <h2>Posts</h2>
-      <button onClick={() => refetch()}>Refresh Posts</button> {/* Button renamed to "Refresh Posts" */}
+      <button onClick={() => refetch()}>Refresh Posts</button> {/* Button to manually refresh */}
       <ul>
         {posts.map((post) => (
           <li key={post.id}>{post.title}</li>
