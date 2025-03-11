@@ -8,16 +8,17 @@ const Profile = () => {
     <>
     <div>
       <nav>
-        <Link to="details">Profile Details</Link> |
-        <Link to="settings">Profile Settings</Link>
+        <Link to="ProfileDetails">Profile Details</Link> |
+        <Link to="ProfileSettings">Profile Settings</Link>
       </nav>
 
       <h2>Profile Page</h2>
+
     </div>
     
       <Routes>
-        <Route path="details" element={<ProfileDetails />} />
-        <Route path="settings" element={<ProfileSettings />} />
+        <Route path="ProfileDetails" element={<ProfileDetails />} />
+        <Route path="ProfileSettings" element={<ProfileSettings />} />
       </Routes>
     </>
   );

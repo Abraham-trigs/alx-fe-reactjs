@@ -2,8 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import useAuthenticationStore from './store/AuthenticationStore';
 
-const Login = () => {
-  const login = useAuthStore((state) => state.login);
+const LoginPage = () => {
+  const login = useAuthenticationStore((state) => state.login);
   const navigate = useNavigate();
 
   const handleLogin = () => {

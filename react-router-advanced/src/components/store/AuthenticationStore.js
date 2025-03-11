@@ -1,8 +1,8 @@
 import { create } from 'zustand';
 
 const useAuthenticationStore = create ((set) => ({
-  isAuthenticated: false,
+  isAuthenticated: true,
   login: () => set({ isAuthenticated: true}), 
-  loginout: () => set({isAuthenticated:false}),
+  logout: () => set({isAuthenticated:false}),
 }));
 export default useAuthenticationStore;
