@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Profile from './components/Profile';
-import ProfileDetails from './components/profileDetails';
-import ProfileSettings from './components/ProfileSettings';
 import Home from './components/Home';
+import UserProfile from './components/UserProfile'
+
 const App = () => {
   return (
     <>
@@ -15,8 +15,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Profile" element={<Profile />} />
-        {/* <Route path="/ProfileDetails" element={<ProfileDetails />} /> */}
-        {/* <Route path="/ProfileSettings" element={<ProfileSettings />} /> */}
+        <Route path="/UserProfile" element={<UserProfile />} />
       </Routes>
     </>
   );
