@@ -1,13 +1,12 @@
 import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import Profile from './components/Profile';
-import ProfileDetails from './components/ProfileDetails';
-import ProfileSettings from './components/ProfileSettings';
 import Home from './components/Home';
 import UserProfile from './components/UserProfile';
-import ProtectedRoute from './components/ProtectedRoute';
-import Login from './components/Login';
-import useAuthStore from './store/authStore';
+import LoginPage from './components/LoginPage';
+import useAuthenticationStore from './components/store/AuthenticationStore';
+
+
 
 const App = () => {
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
