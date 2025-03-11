@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Profile from './components/Profile';
 import ProfileDetails from './components/ProfileDetails';
 import ProfileSettings from './components/ProfileSettings';
