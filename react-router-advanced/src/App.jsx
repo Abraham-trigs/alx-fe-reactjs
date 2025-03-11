@@ -6,6 +6,7 @@ import ProfileSettings from './components/ProfileSettings';
 import Home from './components/Home';
 import UserProfile from './components/UserProfile';
 import LoginPage from './components/LoginPage'; 
+import BlogPost from './components/BlogPost'; // ✅ Import BlogPost Component
 import useAuthenticationStore from './components/store/AuthenticationStore';
 import ProtectedRoute from './components/ProtectedRoute';
 
@@ -18,6 +19,8 @@ const App = () => {
       <nav>
         <Link to="/">Home</Link> |
         <Link to="/profile">Profile</Link> |
+        <Link to="/blog/1">Sample Blog 1</Link> | {/* ✅ Example Blog Link */}
+        <Link to="/blog/2">Sample Blog 2</Link> |
         {isAuthenticated ? (
           <button onClick={logout}>Logout</button>
         ) : (
@@ -29,7 +32,10 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/loginPage" element={<LoginPage />} />
 
-        {/* Protected Route for Profile (Parent Route) */}
+        {/* ✅ Dynamic Blog Route */}
+        <Route path="/blog/:id" element={<BlogPost />} />
+
+        {/* Protected Route for Profile */}
         <Route
           path="/profile/*"
           element={
