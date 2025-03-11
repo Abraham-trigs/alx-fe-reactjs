@@ -1,22 +1,22 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Profile from './components/Profile';
-import ProfileDetails from './components/ProfileDetails';
+import ProfileDetails from './components/profileDetails';
 import ProfileSettings from './components/ProfileSettings';
-
+import Home from './components/Home';
 const App = () => {
   return (
     <>
       <nav>
-        <Link to="/">Profile</Link> | 
-        <Link to="/ProfileDetails">Profile Details</Link> | 
-        <Link to="/ProfileSettings">Profile Settings</Link>|
+        <Link to="/">Home</Link> | 
+        <Link to="/Profile">Profile</Link> | 
       </nav>
 
       <Routes>
-        <Route path="/" element={<Profile />} />
-        <Route path="/ProfileDetails" element={<ProfileDetails />} />
-        <Route path="/ProfileSettings" element={<ProfileSettings />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/Profile" element={<Profile />} />
+        {/* <Route path="/ProfileDetails" element={<ProfileDetails />} /> */}
+        {/* <Route path="/ProfileSettings" element={<ProfileSettings />} /> */}
       </Routes>
     </>
   );
