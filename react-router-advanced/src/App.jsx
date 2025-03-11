@@ -38,7 +38,6 @@ const App = () => {
             </ProtectedRoute>
           }
         />
-
         {/* Dynamic Route (User Profiles) */}
         <Route path="/user/:userId" element={<UserProfile />} />
       </Routes>
