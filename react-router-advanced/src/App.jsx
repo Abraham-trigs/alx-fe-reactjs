@@ -1,9 +1,7 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import Profile from './components/Profile';
-import ProfileDetails from './components/ProfileDetails';
-import ProfileSettings from './components/ProfileSettings';
+import { Routes, Route, Link } from 'react-router-dom';
 import Home from './components/Home';
+import Profile from './components/Profile';
 import UserProfile from './components/UserProfile';
 import LoginPage from './components/LoginPage'; 
 import BlogPost from './components/BlogPost'; // ✅ Import BlogPost Component
@@ -35,7 +33,7 @@ const App = () => {
         {/* ✅ Dynamic Blog Route */}
         <Route path="/blog/:id" element={<BlogPost />} />
 
-        {/* Protected Route for Profile */}
+        {/* Protected Profile Route */}
         <Route
           path="/profile/*"
           element={
@@ -43,11 +41,7 @@ const App = () => {
               <Profile />
             </ProtectedRoute>
           }
-        >
-          {/* ✅ Nested Routes inside Profile */}
-          <Route path="details" element={<ProfileDetails />} />
-          <Route path="settings" element={<ProfileSettings />} />
-        </Route>
+        />
 
         {/* Dynamic Route for User Profiles */}
         <Route path="/user/:userId" element={<UserProfile />} />
