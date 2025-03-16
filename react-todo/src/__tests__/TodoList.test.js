@@ -1,17 +1,17 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import TodoList from "../components/TodoList";
+import TestTodoList from "../components/TestTodoList";
 
 describe("TodoList Component", () => {
     test("renders TodoList component correctly", () => {
-        render(<TodoList />);
+        render(<TestTodoList />);
         const heading = screen.getByText(/Todo List/i);
         expect(heading).toBeInTheDocument();
     });
 
     test("adds a new todo", () => {
-        render(<TodoList />);
+        render(<TestTodoList />);
         
         // Select input and button
         const input = screen.getByPlaceholderText(/Add a new todo/i);
