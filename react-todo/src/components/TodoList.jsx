@@ -1,27 +1,22 @@
-import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
-import TodoList from "../components/TodoList";
+import React, { useState } from "react";
 
-describe("TodoList Component", () => {
-    test("renders TodoList component correctly", () => {
-        render(<TodoList />);
-        const heading = screen.getByText(/Todo List/i);
-        expect(heading).toBeInTheDocument();
-    });
+const TodoList = () => {
+	const [todos, setTodos] = useState([]);
 
-    test("adds a new todo", () => {
-        render(<TodoList />);
-        
-        // Select input and button
-        const input = screen.getByPlaceholderText(/Add a new todo/i);
-        const addButton = screen.getByText(/Add Todo/i);
+	const addTodo = (todoText) => {
+		setTodos([...todos, { text: todoText, completed: false }]);
+	};
 
-        // Simulate user typing and clicking "Add Todo"
-        fireEvent.change(input, { target: { value: "Learn Testing" } });
-        fireEvent.click(addButton);
+	return (
+		<div>
+			<h2>Todo List</h2>
+			<ul>
+				{todos.map((todo, index) => (
+						<li key={index}>{todo.text}</li>
+					))}
+			</ul>
+		</div>
+	);
+};
 
-        // Check if the new todo appears
-        expect(screen.getByText(/Learn Testing/i)).toBeInTheDocument();
-    });
-});
 export default TodoList;
