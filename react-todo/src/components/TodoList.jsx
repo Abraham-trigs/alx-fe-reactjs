@@ -30,6 +30,7 @@ const TodoList = () => {
     return (
         <div>
             <h2>Todo List</h2>
+
             {/* Input field and Add button */}
             <input 
                 type="text" 
@@ -42,11 +43,19 @@ const TodoList = () => {
             {/* Displaying todos */}
             <ul>
                 {todos.map(todo => (
-                    <li key={todo.id} 
-                        onClick={() => toggleTodo(todo.id)}
-                        style={{ textDecoration: todo.completed ? "line-through" : "none" }}>
-                        {todo.text}
-                        <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+                    <li 
+                        key={todo.id} 
+                        style={{ textDecoration: todo.completed ? "line-through" : "none" }}
+                    >
+                        <span onClick={() => toggleTodo(todo.id)}>{todo.text}</span>
+                        <button 
+                            onClick={(e) => {
+                                e.stopPropagation(); // Prevent toggle on delete
+                                deleteTodo(todo.id);
+                            }}
+                        >
+                            Delete
+                        </button>
                     </li>
                 ))}
             </ul>
