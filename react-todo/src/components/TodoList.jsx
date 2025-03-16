@@ -24,3 +24,4 @@ describe("TodoList Component", () => {
         expect(screen.getByText(/Learn Testing/i)).toBeInTheDocument();
     });
 });
+export default TodoList;
