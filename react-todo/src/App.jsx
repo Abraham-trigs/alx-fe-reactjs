@@ -1,13 +1,13 @@
-import { useState } from "react";
-import TodoList from "./components/TodoList"
+import React from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
+import TodoList from './components/TodoList';
 
-function App() {
-
+const App = () => {
   return (
     <>
     <TodoList />
     </>
-  )
-}
+  );
+};
 
 export default App;
