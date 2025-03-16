@@ -1,9 +1,17 @@
-import { create } from 'zustand';
+import React, { createContext, useState } from "react";
 
-const useRecipeStore = create((set) => ({
-  recipes: [],
-  addRecipe: (newRecipe) => set((state) => ({ recipes: [...state.recipes, newRecipe] })),
-  setRecipes: (recipes) => set({ recipes }),
-}));
+// Create UserContext
+const UserContext = createContext();
 
-export default useRecipeStore;
+// UserContext Provider component
+export const UserProvider = ({ children }) => {
+    const [user, setUser] = useState({ name: "", email: "" });
+
+    return (
+        <UserContext.Provider value={{ user, setUser }}>
+            {children}
+        </UserContext.Provider>
+    );
+};
+
+export default UserContext;
