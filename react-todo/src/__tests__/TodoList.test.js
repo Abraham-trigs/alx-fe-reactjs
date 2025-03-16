@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import TestTodoList from "./components/TestTodoList";
+import TestTodoList from "../components/TestTodoList";
 
 describe("TodoList Component", () => {
     test("renders TodoList component correctly", () => {
