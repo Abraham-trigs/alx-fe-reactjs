@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Home from './components/Home';
 import Profile from './components/Profile';
 import UserProfile from './components/UserProfile';
@@ -17,7 +17,7 @@ const App = () => {
       <nav>
         <Link to="/">Home</Link> |
         <Link to="/profile">Profile</Link> |
-        <Link to="/blog/1">Sample Blog 1</Link> | {/* ✅ Example Blog Link */}
+        <Link to="/blog/1">Sample Blog 1</Link> | {/*  Example Blog Link */}
         <Link to="/blog/2">Sample Blog 2</Link> |
         {isAuthenticated ? (
           <button onClick={logout}>Logout</button>
@@ -30,7 +30,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/loginPage" element={<LoginPage />} />
 
-        {/* ✅ Dynamic Blog Route */}
+        {/*  Dynamic Blog Route */}
         <Route path="/blog/:id" element={<BlogPost />} />
 
         {/* Protected Profile Route */}
