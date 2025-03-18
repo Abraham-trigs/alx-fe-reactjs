@@ -8,7 +8,7 @@ const Homepage = () => {
 	useEffect(() => {
 			fetch('/data.json')
 			.then((Response) => Response.json ())
-			.then((data) => setRecipe.data (data))
+			.then((data) => setRecipe(data))
 			.catch((error) => console.log('Error loading data:', error));
 	}, []);
 
