@@ -1,9 +1,11 @@
-import Test from "./components/Test";
+import './index.css';
+import Homepage from "./components/HomePage";
+
 function App() {
 
   return (
     <>
-    <Test />
+    <Homepage />
     </>
   )
 }
