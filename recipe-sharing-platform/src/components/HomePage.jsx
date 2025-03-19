@@ -10,12 +10,12 @@ const Homepage = () => {
 
     return (
         <div className="relative max-w-6xl mx-auto p-6 z-10">  
-            <h1 className="
-						text-4xl font-black text-center mb-10 text-white tracking-tight drop-shadow-md">
+            <h1 className="text-4xl font-black text-center mb-10 text-white tracking-tight drop-shadow-md">
                 🍽️ Recipe List
             </h1>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* ✅ Change grid-cols-2 to grid-cols-3 */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {recipe.map((item) => (
                     <div 
                         key={item.id} 
@@ -26,6 +26,7 @@ const Homepage = () => {
                             alt={item.title} 
                             className="w-full h-48 object-cover"
                         />
+                        
                         <div className="p-5">
                             <h2 className=" border-r-8 p-1.5 bg-blue-600 text-2xl font-bold text-[rgb(243,229,171)]">{item.title}</h2>
                             <p className="text-blue-600 font-medium bg-grey text-sm p-1.5 ">{item.summary}</p>

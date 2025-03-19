@@ -7,7 +7,15 @@
     
     {
       "id": 2,
-      "title": "Chicken Tikka Masala",
-      "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-      "image": "https://unsplash.com/photos/ZSukCSw5VV4/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzQyMzQzNjgyfA&force=true"    }
-  ]
+      "title": "Locally Made Waakye",
+      "summary": "Waakye is a classic Ghanaian dish made from rice and beans, cooked together with dried millet leaves for a natural reddish-brown color. ",
+      "image": "https://unsplash.com/photos/FIGcCVQeGwE/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzQyMzUyOTA4fA&force=true"    },
+    
+  {
+    "id": 3,
+    "title": "Chicken Tikka Masala",
+    "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
+    "image": "https://unsplash.com/photos/ZSukCSw5VV4/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzQyMzQzNjgyfA&force=true"    }
+  
+]
+
