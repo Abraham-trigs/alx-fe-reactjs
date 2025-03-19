@@ -18,7 +18,7 @@ const Homepage = () => {
             </h1>
 
             {/* Recipe Grid - Displays 3 columns on medium screens and above */}
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols- md:grid-cols-3 gap-8">
                 {recipe.map((item) => (
                     <div 
                         key={item.id}  // Unique key for each recipe
@@ -35,7 +35,7 @@ const Homepage = () => {
                         <div className="p-5">
                             {/* Recipe Title - Styled with border and background color */}
                             <h2 className="border-r-8 p-1.5 bg-blue-600 text-2xl font-bold text-[rgb(243,229,171)]">
-                                {item.title}
+                              {item.title}
                             </h2>
                             
                             {/* Recipe Summary - Styled with padding and text color */}
