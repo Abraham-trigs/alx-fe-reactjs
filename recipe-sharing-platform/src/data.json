@@ -15,7 +15,12 @@
     "id": 3,
     "title": "Chicken Tikka Masala",
     "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-    "image": "https://unsplash.com/photos/ZSukCSw5VV4/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzQyMzQzNjgyfA&force=true"    }
+    "image": "https://unsplash.com/photos/ZSukCSw5VV4/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzQyMzQzNjgyfA&force=true"    },
   
+  {
+    "id": 4,
+    "title": "Chilli mania",
+    "summary": "This fiery rice recipe combines fragrant basmati rice with a medley of chili peppers, savory spices, and hearty ingredients like vegetables, beans, or protein of your choice. ",
+    "image": "https://unsplash.com/photos/szQFiGZH8wU/download?force=true"    }
 ]
 
