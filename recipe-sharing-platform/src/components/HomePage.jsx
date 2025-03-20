@@ -1,25 +1,33 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import data from "../data.json"; // Static data
 import useRecipeStore from "../store/recipeStore"; // Zustand store
 import AddRecipeForm from "../components/AddRecipeForm"; // Import Add Recipe Form
 
 function Homepage() {
+  const [showForm, setShowForm] = useState(false); // State to control form visibility
   const recipes = useRecipeStore((state) => state.recipes); // Get stored recipes
 
   return (
     <div className="min-h-screen bg-blue-600 flex flex-col items-center p-6">
       <h1 className="text-4xl font-bold text-gray-100 mb-6">Recipe Collection</h1>
 
-      {/* Recipe-Page Button */}
-      <Link
-        to="/add-recipe"
-        className="mb-6 px-6 py-3 bg-blue-900 text-white rounded-lg shadow hover:bg-blue-800 transition duration-400"
+      {/* Toggle Add Recipe Form */}
+      <button
+        onClick={() => setShowForm(!showForm)}
+        className="mb-6 px-6 py-3 bg-blue-900 text-white rounded-lg shadow-lg hover:bg-blue-800 transition-all duration-500 ease-out transform hover:scale-110"
       >
-        ➕ Add a Recipe
-      </Link>
+        {showForm ? "❌ Close Form" : "➕ Add a Recipe"}
+      </button>
 
-      {/* Add Recipe Form */}
-      <AddRecipeForm />
+      {/* Animated Form (Even Smoother Tailwind Slide-Down) */}
+      <div
+        className={`transition-[max-height,opacity,transform] duration-700 ease-out overflow-hidden ${
+          showForm ? "max-h-screen opacity-100 scale-y-100" : "max-h-0 opacity-0 scale-y-95"
+        }`}
+      >
+        <AddRecipeForm />
+      </div>
 
       {/* Display Static & Added Recipes */}
       <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">

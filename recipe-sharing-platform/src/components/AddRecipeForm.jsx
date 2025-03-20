@@ -22,10 +22,10 @@ function AddRecipeForm() {
     if (!validateForm()) return;
 
     const newRecipe = {
-      id: Date.now(), // Unique ID
+      id: Date.now().toString(), // Ensure ID is a string for matching
       title,
-      ingredients,
-      steps,
+      ingredients: ingredients.split(",").map((item) => item.trim()), // Convert to array
+      steps: steps.split(". ").map((item) => item.trim()), // Convert to array
       image: "https://via.placeholder.com/150", // Default image
       summary: "User-added recipe",
     };
@@ -59,7 +59,7 @@ function AddRecipeForm() {
         </div>
 
         <div>
-          <label className="block text-gray-700 font-medium">Ingredients:</label>
+          <label className="block text-gray-700 font-medium">Ingredients (comma-separated):</label>
           <textarea
             value={ingredients}
             onChange={(e) => setIngredients(e.target.value)}
@@ -67,12 +67,13 @@ function AddRecipeForm() {
               errors.ingredients ? "border-red-500 focus:ring-red-500" : "focus:ring-blue-500"
             }`}
             rows="4"
+            placeholder="Example: Flour, Sugar, Eggs"
           ></textarea>
           {errors.ingredients && <p className="text-red-500 text-sm mt-1">{errors.ingredients}</p>}
         </div>
 
         <div>
-          <label className="block text-gray-700 font-medium">Preparation Steps:</label>
+          <label className="block text-gray-700 font-medium">Preparation Steps (separate with a period):</label>
           <textarea
             value={steps}
             onChange={(e) => setSteps(e.target.value)}
@@ -80,6 +81,7 @@ function AddRecipeForm() {
               errors.steps ? "border-red-500 focus:ring-red-500" : "focus:ring-blue-500"
             }`}
             rows="4"
+            placeholder="Example: Preheat oven. Mix ingredients. Bake for 30 minutes."
           ></textarea>
           {errors.steps && <p className="text-red-500 text-sm mt-1">{errors.steps}</p>}
         </div>

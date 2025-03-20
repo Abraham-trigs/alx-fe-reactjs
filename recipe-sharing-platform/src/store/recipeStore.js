@@ -7,8 +7,6 @@ const useRecipeStore = create((set) => ({
     set((state) => ({
       recipes: [...state.recipes, newRecipe], // Add new recipe to array
     })),
-
-  getRecipes: () => set((state) => state.recipes), // Function to retrieve recipes
 }));
 
 export default useRecipeStore;

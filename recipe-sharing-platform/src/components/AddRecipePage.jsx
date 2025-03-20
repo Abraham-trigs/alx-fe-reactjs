@@ -24,7 +24,7 @@ function AddRecipeForm() {
     const newRecipe = { title, ingredients, steps };
     addRecipe(newRecipe); // Store in Zustand
 
-    alert(`🎉 Recipe Added! \n\nTitle: ${title} \nIngredients: ${ingredients} \nSteps: ${steps}`);
+    alert(`🎉 Recipe Added! `);
 
     // Reset form
     setTitle("");
