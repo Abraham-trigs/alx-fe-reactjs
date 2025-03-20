@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import data from "../data.json"; // Import static recipe data
 import useRecipeStore from "../store/recipeStore"; // Import Zustand store for state management
@@ -13,6 +13,11 @@ function Homepage() {
 
   // Default image URL for recipes without an image
   const defaultImageUrl = "https://unsplash.com/photos/hwy3W3qFjgM/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Nnx8dGhlJTIwdGV4dCUyMHJlY2lwZXxlbnwwfHx8fDE3NDI0ODE5MTF8MA&force=true"; 
+
+  // Persist recipes in local storage
+  useEffect(() => {
+    localStorage.setItem("recipes", JSON.stringify(recipes));
+  }, [recipes]); // Runs whenever recipes change
 
   return (
     <div className="min-h-screen bg-blue-600 flex flex-col items-center p-6">
