@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import data from "../data.json"; // Static data
 import useRecipeStore from "../store/recipeStore"; // Zustand store
+import AddRecipeForm from "../components/AddRecipeForm"; // Import Add Recipe Form
 
 function Homepage() {
   const recipes = useRecipeStore((state) => state.recipes); // Get stored recipes
@@ -17,8 +18,11 @@ function Homepage() {
         ➕ Add a Recipe
       </Link>
 
+      {/* Add Recipe Form */}
+      <AddRecipeForm />
+
       {/* Display Static & Added Recipes */}
-      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
         {[...data, ...recipes].map((recipe, index) => (
           <div key={index} className="bg-white shadow-lg rounded-lg p-4 max-w-xs">
             <img
