@@ -47,10 +47,12 @@ function RecipeDetail() {
         {/* Cooking Instructions Section */}
         <div className="mt-6">
           <h2 className="text-2xl font-semibold text-gray-700 mb-2">Cooking Instructions</h2>
-          <p className="bg-gray-50 p-4 rounded-lg shadow-md text-gray-700">
-            Follow the traditional method for cooking <strong>{recipe.title}</strong>.
-            More details will be added here.
-          </p>
+          <ol className="bg-gray-50 p-4 rounded-lg shadow-md text-gray-700">
+            {recipe.instructions.map((step, index) => (
+                <li key={index}>{step}</li>
+            ))}
+    
+          </ol>
         </div>
 
         {/* Back Button */}
