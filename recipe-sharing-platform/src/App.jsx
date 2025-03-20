@@ -5,14 +5,12 @@ import RecipeDetail from "./components/RecipeDetail"; // Ensure this is imported
 
 function App() {
   return (
-    <Router>
       <div className="min-h-screen w-full bg-blue-600 flex justify-center items-center">
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/recipe/:id" element={<RecipeDetail />} />
         </Routes>
       </div>
-    </Router>
   );
 }
 

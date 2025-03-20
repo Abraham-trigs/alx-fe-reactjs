@@ -1,26 +1,94 @@
 [
   {
-      "id": 1,
-      "title": "Spaghetti Carbonara",
-      "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-      "image": "https://unsplash.com/photos/b29Qdj7zc5g/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzQyMzQzNjI4fA&force=true"    },
-    
-    {
-      "id": 2,
-      "title": "Locally Made Waakye",
-      "summary": "Waakye is a classic Ghanaian dish made from rice and beans, cooked together with dried millet leaves for a natural reddish-brown color. ",
-      "image": "https://unsplash.com/photos/FIGcCVQeGwE/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzQyMzUyOTA4fA&force=true"    },
-    
+    "id": 1,
+    "title": "Spaghetti Carbonara",
+    "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
+    "image": "https://unsplash.com/photos/b29Qdj7zc5g/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzQyMzQzNjI4fA&force=true",
+    "ingredients": [
+      "200g spaghetti",
+      "100g pancetta or bacon, diced",
+      "2 large eggs",
+      "50g Parmesan cheese, grated",
+      "2 cloves garlic, minced",
+      "Black pepper, to taste",
+      "Salt, to taste"
+    ],
+    "instructions": [
+      "Boil spaghetti in salted water until al dente, then drain and reserve some pasta water.",
+      "In a pan, cook pancetta until crispy, then add minced garlic.",
+      "In a bowl, whisk eggs with grated Parmesan cheese and black pepper.",
+      "Remove pan from heat, add spaghetti, and mix with pancetta.",
+      "Slowly stir in egg mixture, adding pasta water if needed to create a creamy sauce.",
+      "Serve immediately with extra Parmesan on top."
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Locally Made Waakye",
+    "summary": "Waakye is a classic Ghanaian dish made from rice and beans, cooked together with dried millet leaves for a natural reddish-brown color.",
+    "image": "https://unsplash.com/photos/FIGcCVQeGwE/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzQyMzUyOTA4fA&force=true",
+    "ingredients": [
+      "2 cups rice",
+      "1 cup black-eyed peas or red beans",
+      "5 dried millet leaves",
+      "1 tsp baking soda",
+      "Salt, to taste",
+      "Water"
+    ],
+    "instructions": [
+      "Soak beans overnight, then rinse and drain.",
+      "Boil beans with millet leaves and baking soda until tender.",
+      "Add washed rice, salt, and more water if needed, then cook until rice is soft and absorbed the color.",
+      "Remove millet leaves and fluff rice.",
+      "Serve with shito (hot pepper sauce), fried plantain, or meat of choice."
+    ]
+  },
   {
     "id": 3,
     "title": "Chicken Tikka Masala",
-    "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-    "image": "https://unsplash.com/photos/ZSukCSw5VV4/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzQyMzQzNjgyfA&force=true"    },
-  
+    "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato-based gravy.",
+    "image": "https://unsplash.com/photos/ZSukCSw5VV4/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzQyMzQzNjgyfA&force=true",
+    "ingredients": [
+      "500g boneless chicken, cubed",
+      "1 cup yogurt",
+      "2 tbsp lemon juice",
+      "2 tsp garam masala",
+      "1 tsp turmeric",
+      "1 tbsp ginger-garlic paste",
+      "2 cups tomato puree",
+      "1/2 cup heavy cream",
+      "1 tsp cumin",
+      "Salt & pepper, to taste"
+    ],
+    "instructions": [
+      "Marinate chicken in yogurt, lemon juice, and spices for at least 2 hours.",
+      "Grill or pan-fry chicken until cooked.",
+      "In a pan, sauté ginger-garlic paste with cumin, then add tomato puree and simmer.",
+      "Stir in heavy cream and grilled chicken, letting it cook for another 5 minutes.",
+      "Serve hot with naan or rice."
+    ]
+  },
   {
     "id": 4,
-    "title": "Chilli mania",
-    "summary": "This fiery rice recipe combines fragrant basmati rice with a medley of chili peppers, savory spices, and hearty ingredients like vegetables, beans, or protein of your choice. ",
-    "image": "https://unsplash.com/photos/szQFiGZH8wU/download?force=true"    }
+    "title": "Chilli Mania",
+    "summary": "This fiery rice recipe combines fragrant basmati rice with a medley of chili peppers, savory spices, and hearty ingredients like vegetables, beans, or protein of your choice.",
+    "image": "https://unsplash.com/photos/szQFiGZH8wU/download?force=true",
+    "ingredients": [
+      "2 cups basmati rice",
+      "1 cup mixed bell peppers (red, green, yellow), diced",
+      "2 fresh red chilies, finely chopped",
+      "1 tsp cumin powder",
+      "1 tsp paprika",
+      "1 tbsp olive oil",
+      "1/2 cup kidney beans (optional)",
+      "Salt & pepper, to taste"
+    ],
+    "instructions": [
+      "Cook basmati rice until fluffy and set aside.",
+      "Heat olive oil in a pan, add chopped chilies and bell peppers, and sauté for 3 minutes.",
+      "Add cumin powder, paprika, and kidney beans, then stir well.",
+      "Mix in the cooked rice, season with salt and pepper, and cook for another 5 minutes.",
+      "Serve hot with your favorite protein or as a spicy side dish."
+    ]
+  }
 ]
-
