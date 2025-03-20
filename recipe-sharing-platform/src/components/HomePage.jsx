@@ -1,10 +1,20 @@
 import { Link } from "react-router-dom";
 import data from "../data.json"; 
+import AddRecipePage from "./AddRecipePage";
 
 function Homepage() {
   return (
     <div className="min-h-screen bg-blue-600 flex flex-col items-center p-6">
       <h1 className="text-4xl font-bold text-gray-100 mb-6">Recipe Collection</h1>
+
+       {/* Recipe-Page Button */}
+      <Link
+        to="/add-recipe"
+        className="mb-6 px-6 py-3 bg-blue-900 text-white rounded-lg shadow hover:bg-blue-800 transition duration-400"
+      >
+        ➕ Add a Recipe
+      </Link>
+
 
       <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {data.map((recipe) => (
