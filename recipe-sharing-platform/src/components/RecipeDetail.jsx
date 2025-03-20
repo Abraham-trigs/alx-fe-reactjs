@@ -20,7 +20,7 @@ function RecipeDetail() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center p-6">
+    <div className="min-h-screen bg-blue-100 flex flex-col items-center p-6">
       {/* Recipe Container */}
       <div className="max-w-3xl w-full bg-white shadow-lg rounded-lg p-6">
         {/* Recipe Image */}
@@ -38,10 +38,9 @@ function RecipeDetail() {
         <div className="mt-6">
           <h2 className="text-2xl font-semibold text-gray-700 mb-2">Ingredients</h2>
           <ul className="bg-gray-50 p-4 rounded-lg shadow-md text-gray-700 space-y-2">
-            <li>🍅 Ingredient 1</li>
-            <li>🥩 Ingredient 2</li>
-            <li>🧄 Ingredient 3</li>
-            {/* Replace with actual ingredients */}
+           {recipe.ingredients.map((ingredients, index) => (
+            <li key={index}> {ingredients}</li>
+           ))}
           </ul>
         </div>
 
