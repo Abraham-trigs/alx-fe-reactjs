@@ -10,6 +10,7 @@ function AddRecipeForm() {
   const [summary, setSummary] = useState("");
   const [ingredients, setIngredients] = useState("");
   const [instructions, setInstructions] = useState("");
+  const [steps, setSteps] = useState("");
   const [image, setImage] = useState("");
   const [errors, setErrors] = useState({}); // State for form validation errors
 
@@ -23,6 +24,7 @@ function AddRecipeForm() {
     if (!summary.trim()) tempErrors.summary = "Short description is required!";
     if (!ingredients.trim()) tempErrors.ingredients = "Ingredients are required!";
     if (!instructions.trim()) tempErrors.instructions = "Instructions are required!";
+    if (!steps.trim()) tempErrors.steps = "Steps are required!";
     setErrors(tempErrors);
     return Object.keys(tempErrors).length === 0; // Return true if no errors
   };
@@ -39,6 +41,7 @@ function AddRecipeForm() {
       summary,
       ingredients: ingredients.split(",").map((item) => item.trim()), // Convert string into an array
       instructions: instructions.split(". ").map((item) => item.trim()), // Convert string into an array
+      steps: steps.split(". ").map((item) => item.trim()), // Convert string into an array
       image: image.trim() || defaultImageUrl, // Use provided image or default
     };
 
@@ -50,6 +53,7 @@ function AddRecipeForm() {
     setSummary("");
     setIngredients("");
     setInstructions("");
+    setSteps("");
     setImage("");
     setErrors({});
   };
@@ -107,6 +111,19 @@ function AddRecipeForm() {
             placeholder="Example: Preheat oven. Mix ingredients. Bake for 30 minutes."
           ></textarea>
           {errors.instructions && <p className="text-red-500 text-sm mt-1">{errors.instructions}</p>}
+        </div>
+
+        {/* Steps Input */}
+        <div>
+          <label className="block text-gray-700 font-medium">Steps (separate with a period):</label>
+          <textarea
+            value={steps}
+            onChange={(e) => setSteps(e.target.value)}
+            className="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+            rows="4"
+            placeholder="Example: Step 1. Step 2. Step 3."
+          ></textarea>
+          {errors.steps && <p className="text-red-500 text-sm mt-1">{errors.steps}</p>}
         </div>
 
         {/* Image URL Input */}
