@@ -3,10 +3,10 @@ import data from "../data.json"; // Ensure the correct path
 
 function Homepage() {
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center p-6">
-      <h1 className="text-4xl font-bold text-gray-800 mb-6">Recipe Collection</h1>
+    <div className="min-h-screen bg-blue-600 flex flex-col items-center p-6">
+      <h1 className="text-4xl font-bold text-gray-100 mb-6">Recipe Collection</h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {data.map((recipe) => (
           <div key={recipe.id} className="bg-white shadow-lg rounded-lg p-4 max-w-xs">
             <img

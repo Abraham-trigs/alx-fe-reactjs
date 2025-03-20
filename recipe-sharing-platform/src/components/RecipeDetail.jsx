@@ -20,7 +20,7 @@ function RecipeDetail() {
   }
 
   return (
-    <div className="min-h-screen bg-blue-100 flex flex-col items-center p-6">
+    <div className="min-h-screen bg-blue-600 flex flex-col items-center p-6">
       {/* Recipe Container */}
       <div className="max-w-3xl w-full bg-white shadow-lg rounded-lg p-6">
         {/* Recipe Image */}
