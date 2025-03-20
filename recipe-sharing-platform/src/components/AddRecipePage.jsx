@@ -8,5 +8,4 @@ function AddRecipePage() {
     </div>
   );
 }
-
 export default AddRecipePage;
