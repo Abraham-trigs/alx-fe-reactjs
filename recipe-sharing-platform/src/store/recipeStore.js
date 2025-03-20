@@ -1,8 +1,14 @@
 import { create } from "zustand";
 
 const useRecipeStore = create((set) => ({
-  recipes: [],
-  addRecipe: (newRecipe) => set((state) => ({ recipes: [...state.recipes, newRecipe] })),
+  recipes: [], // Initial state
+
+  addRecipe: (newRecipe) =>
+    set((state) => ({
+      recipes: [...state.recipes, newRecipe], // Add new recipe to array
+    })),
+
+  getRecipes: () => set((state) => state.recipes), // Function to retrieve recipes
 }));
 
 export default useRecipeStore;
