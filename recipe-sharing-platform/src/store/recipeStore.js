@@ -5,7 +5,15 @@ const useRecipeStore = create((set) => ({
 
   addRecipe: (newRecipe) =>
     set((state) => ({
-      recipes: [...state.recipes, newRecipe], // Add new recipe to array
+      // new recipe to array
+      recipes: [...state.recipes, newRecipe], 
+    })),
+
+  editRecipe: (updatedRecipe) =>
+    set((state) => ({
+      recipes: state.recipes.map((recipe) =>
+        recipe.id === updatedRecipe.id ? updatedRecipe : recipe
+      ),
     })),
 }));
 
