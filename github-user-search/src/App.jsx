@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SearchBar from "./components/SearchBar";
-import fetchUserData from "./services/githubApi";
+import SearchResults from "./components/SearchResult";
+import { fetchUserData } from "./services/githubApi"; // Fix import
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -16,29 +17,25 @@ const App = () => {
       const userData = await fetchUserData(username);
       setUser(userData);
     } catch (err) {
-      setError("Looks like we can't find the user");
+      setError("Looks like we can't find the user.");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="app-container">
-      <h1>GitHub User Search</h1>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 p-6">
+      <h1 className="text-3xl font-bold text-white mb-6">GitHub User Search</h1>
+
+      {/* Pass handleSearch as a prop to SearchBar */}
       <SearchBar onSearch={handleSearch} />
 
-      {loading && <p className="message">Loading...</p>}
-      {error && <p className="error">{error}</p>}
+      {/* Loading & Error Messages */}
+      {loading && <p className="text-white mt-4">Loading...</p>}
+      {error && <p className="text-red-500 mt-4">{error}</p>}
 
-      {user && (
-        <div className="user-card">
-          <img src={user.avatar_url} alt={user.login} className="avatar" />
-          <h2>{user.login}</h2>
-          <a href={user.html_url} target="_blank" rel="noopener noreferrer">
-            View Profile
-          </a>
-        </div>
-      )}
+      {/* Display user info using SearchResults */}
+      {user && <SearchResults user={user} />}
     </div>
   );
 };
