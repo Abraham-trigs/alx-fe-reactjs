@@ -1,19 +1,19 @@
-const SearchResults = ({ user }) => {
+import React from "react";
+
+const SearchResults = ({ users }) => {
   return (
-    <div className="mt-6 bg-gray-800 text-white p-6 rounded-lg shadow-lg w-full max-w-md">
-      <img src={user.avatar_url} alt={user.login} className="w-24 h-24 rounded-full mx-auto" />
-      <h2 className="text-xl font-bold text-center mt-4">{user.login}</h2>
-      <p className="text-center">{user.bio || "No bio available"}</p>
-      <div className="flex justify-center mt-4">
-        <a
-          href={user.html_url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-blue-600 px-4 py-2 rounded-lg text-white hover:bg-blue-700"
-        >
-          View Profile
-        </a>
-      </div>
+    <div className="mt-6 grid gap-4 max-w-2xl">
+      {users.map((user) => (
+        <div key={user.id} className="flex items-center bg-gray-800 p-4 rounded-lg shadow-md">
+          <img src={user.avatar_url} alt={user.login} className="w-16 h-16 rounded-full border-2 border-blue-500" />
+          <div className="ml-4">
+            <h2 className="text-lg font-bold text-white">{user.login}</h2>
+            <a href={user.html_url} target="_blank" rel="noopener noreferrer" className="text-blue-400">
+              View Profile
+            </a>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };
