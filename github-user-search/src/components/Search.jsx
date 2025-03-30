@@ -1,43 +1,53 @@
 import React, { useState } from "react";
+import axios from "axios";
+import SearchResults from "./SearchResults";
 
-const SearchBar = ({ onSearch }) => {
+const SearchBar = () => {
   const [query, setQuery] = useState("");
-  const [location, setLocation] = useState("");
-  const [minRepos, setMinRepos] = useState("");
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const fetchUserData = async (username) => {
+    setLoading(true);
+    setError("");
+    setUser(null);
+
+    try {
+      const response = await axios.get(`https://api.github.com/users/${username}`);
+      setUser(response.data);
+    } catch (err) {
+      setError("Looks like we can't find the user");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSearch(query, location, minRepos);
+    if (query.trim()) {
+      fetchUserData(query);
+    }
   };
 
   return (
-    <div className="flex flex-col items-center justify-center w-full mt-8">
-      <form onSubmit={handleSubmit} className="flex flex-col gap-3 w-full max-w-lg bg-gray-800 p-4 rounded-lg">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 p-6">
+      <h1 className="text-3xl font-bold text-white mb-4">GitHub User Search</h1>
+      
+      <form onSubmit={handleSubmit} className="flex w-full max-w-md">
         <input
           type="text"
-          placeholder="Search by username..."
-          className="px-4 py-2 rounded bg-gray-700 text-white"
+          placeholder="Search users..."
+          className="flex-1 px-4 py-2 rounded-l-lg border border-gray-600 bg-gray-800 text-white focus:outline-none"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <input
-          type="text"
-          placeholder="Location (optional)..."
-          className="px-4 py-2 rounded bg-gray-700 text-white"
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
-        />
-        <input
-          type="number"
-          placeholder="Min Repositories (optional)..."
-          className="px-4 py-2 rounded bg-gray-700 text-white"
-          value={minRepos}
-          onChange={(e) => setMinRepos(e.target.value)}
-        />
-        <button type="submit" className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+        <button type="submit" className="px-6 py-2 bg-blue-600 text-white rounded-r-lg hover:bg-blue-700">
           Search
         </button>
       </form>
+
+      <SearchResults user={user} loading={loading} error={error} />
     </div>
   );
 };

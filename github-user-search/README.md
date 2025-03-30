@@ -1,12 +1,79 @@
-# React + Vite
+# GitHub User Search Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 Overview
+The **GitHub User Search Application** is a modern web application built with React that allows users to search for GitHub profiles using the **GitHub API**. Users can enter a username to retrieve and display relevant profile information such as avatar, name, location, repository count, and more.
 
-Currently, two official plugins are available:
+## 🎯 Features
+- 🔍 **Search GitHub Users** by their usernames
+- 📍 **Advanced Search** with filtering by location and repository count
+- 📊 **User Information Display** including avatar, bio, and profile link
+- 🎨 **Modern UI** built with Tailwind CSS for responsiveness
+- ⚡ **Fast API Calls** using Axios
+- 🌍 **Deployed on Vercel** for global accessibility
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ Tech Stack
+- **Frontend:** React, Tailwind CSS
+- **API Handling:** Axios
+- **State Management:** React Hooks
+- **Deployment:** Vercel
 
-## Expanding the ESLint configuration
+## 📂 Project Structure
+```
+📦 github-user-search
+├── 📂 src
+│   ├── 📂 components     # Reusable UI components (SearchBar, SearchResults)
+│   ├── 📂 services       # API service (githubService.js)
+│   ├── 📜 App.jsx        # Main React component
+│   ├── 📜 main.jsx       # React entry point
+│
+├── 📜 .env               # Environment variables
+├── 📜 .gitignore         # Git ignored files
+├── 📜 package.json       # Project dependencies
+└── 📜 README.md          # Project documentation
+```
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ⚙️ Installation & Setup
+Follow these steps to run the project locally:
+
+### 1️⃣ Clone the Repository
+```sh
+git clone https://github.com/your-username/github-user-search.git
+cd github-user-search
+```
+
+### 2️⃣ Install Dependencies
+```sh
+npm install
+```
+
+### 3️⃣ Set Up Environment Variables
+Create a `.env` file in the root directory and add:
+```
+VITE_APP_GITHUB_API_KEY=your_github_api_key
+```
+
+### 4️⃣ Run the Application
+```sh
+npm run dev
+```
+
+The app will be accessible at `http://localhost:5173/`.
+
+## 🌍 Deployment on Vercel
+This application is deployed on Vercel. To deploy it yourself:
+1. **Push to GitHub** and connect your repository to **Vercel**.
+2. Set up **environment variables** in Vercel settings.
+3. **Deploy** and get a live URL like: `https://github-user-search.vercel.app`
+
+## 📜 License
+This project is open-source and available under the **MIT License**.
+
+## 💡 Future Enhancements
+- 🌐 **Dark Mode Support**
+- 🗃️ **Pagination for Large Search Results**
+- 📌 **Save Favorite Users Locally**
+
+---
+
+💻 Built with ❤️ by **Your Name**
+
