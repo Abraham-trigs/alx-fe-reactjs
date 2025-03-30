@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import SearchBar from "./components/SearchBar";
+import SearchBar from "./components/Search";
 import SearchResults from "./components/SearchResults";
-import fetchUserData from "./services/githubApi";
-
+import fetchUserData from "./services/githubService";
 
 const App = () => {
   const [users, setUsers] = useState([]);
